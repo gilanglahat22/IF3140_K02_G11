@@ -79,6 +79,7 @@ for i in arrTi:
         for j in i[6]:
             print(j)
     print("==========")
+
 # ValidationTS(Ti)
 # Validation Phase
 
