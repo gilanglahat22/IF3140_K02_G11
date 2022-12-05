@@ -35,7 +35,7 @@ class SimpleLocking:
       # Jika transaction tidak dapat di-lock
       else:
         print(f"Grant Lock for {self.format(curr)} denied.")
-        if self.still_exist(curr):
+        if not self.still_exist(curr):
           self.queue.append(curr)
           print(f"Transaction {self.format(curr)} added to queue.")
         else:
@@ -172,11 +172,11 @@ class SimpleLocking:
   def still_exist(self, transaction):
     for element in self.transactionList:
       if element[1] == transaction[1]:
-        return False
+        return True
     for element in self.done:
       if element[1] == transaction[1]:
-        return False
-    return True
+        return True
+    return False
 
 if __name__ == "__main__":
   simple_locking = SimpleLocking()
