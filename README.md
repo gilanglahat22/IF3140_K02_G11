@@ -11,7 +11,7 @@ How to Run?
 python simpleLocking.py
 ```
 
-3. Jika sudah masuk, akan ada prompt untuk memasukkan transaction dari file atau langsung di terminal, jika dari file, maka tambah file baru pada folder test di folder simple_locking dengan extension .txt
+3. Pengguna dapat memilih apakah masukkan berupa file .txt atau dengan mengetik transaksinya langsung pada terminal. (File .txt dimasukkan pada folder test yang terdapat pada folder /simple_locking)
 
 ## Serial Optimistic Concurrency Control (OCC)
 
@@ -43,3 +43,13 @@ py .\occ.py ..\..\test\occ_test1.txt
 How to run?
 
 1. Masuk ke dalam folder .\src\MVCC\
+
+## Authors
+
+Kelompok 11 Kelas 02
+|NIM|Nama|
+|---|---|
+|13520014|Muhammad Helmi Hibatullah|
+|13520047|Hana Fathiyah|
+|13520080|Jason Kanggara|
+|13520137|Muhammad Gilang Ramadhan|
