@@ -57,7 +57,7 @@ while not is_all_finished(trans_list, dictTrans):
 
             if is_executed:
                 if action.operation == "commit":
-                    print("<< validation = success >>")
+                    print(f"<< validation T{j}= success >>")
 
                 action.print(j)
                 dictTrans[j].increment_state()
@@ -66,7 +66,7 @@ while not is_all_finished(trans_list, dictTrans):
                     dictTrans[j].is_end = True
                     dictTrans[j].finishTS = clock
             else:
-                print("<< validation = failed >>")
+                print(f"<< validation T{j}= failed >>")
                 print(f"A{j};")
                 dictTrans[j].state = 0
                 dictTrans[j].is_end = False
