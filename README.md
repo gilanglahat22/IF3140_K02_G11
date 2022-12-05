@@ -10,7 +10,6 @@ How to Run?
 ```
 python simpleLocking.py
 ```
-
 3. Pengguna dapat memilih apakah masukkan berupa file .txt atau dengan mengetik transaksinya langsung pada terminal. (File .txt dimasukkan pada folder test yang terdapat pada folder /simple_locking)
 
 ## Serial Optimistic Concurrency Control (OCC)
@@ -42,7 +41,12 @@ py .\occ.py ..\..\test\occ_test1.txt
 
 How to run?
 
-1. Masuk ke dalam folder .\src\MVCC\
+1. Ubah <path file test> dengan ../../test/<nama file> dan <countItem> pada CC(<path file test>, <countItem>)
+2. Masuk ke dalam folder .\src\MVCC\
+3. Ketikkan perintah di bawah ini pada terminal
+```
+py main.py
+```
 
 ## Authors
 
