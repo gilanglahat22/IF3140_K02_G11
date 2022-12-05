@@ -66,7 +66,7 @@ while not is_all_finished(trans_list, dictTrans):
                     dictTrans[j].is_end = True
                     dictTrans[j].finishTS = clock
             else:
-                print(f"<< validation T{j}= failed >>")
+                print(f"<< validation T{j} = failed >>")
                 print(f"A{j};")
                 dictTrans[j].state = 0
                 dictTrans[j].is_end = False
