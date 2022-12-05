@@ -110,7 +110,7 @@ class CC:
                 self.inQueueAborted.append(currIn)
 
             print("----------------------------")
-            print("Curr Instruction: ", currIn)
+            print("Current Instruction: ", currIn)
             print("Instruction Queue: ", self.inQueue)
             print("Transaction Table: ", self.trTbl)
             print("Aborted Transactions ID: ", self.trIDAborted)

@@ -20,8 +20,8 @@ class Storage:
         '''
         version = 0
         for i in self.data:
-            current_Key = i.key
-            current_Ver = i.version
+            current_Key = i[0]
+            current_Ver = i[4]
             if(current_Key == key):
                 if(current_Ver > version):
                     version = current_Ver
@@ -34,10 +34,10 @@ class Storage:
             less than or equal to TS(Ti)
         '''
         index = 0
-        wts = self.data[0].writeTS
+        wts = self.data[0][3]
         for i in self.data:
-            current_Key = i.key
-            current_WTS = i.writeTS
+            current_Key = i[0]
+            current_WTS = i[3]
             if(key==current_Key):
                 if(current_WTS>wts):
                     if(current_WTS<=timestamp): # Qi terdeteksi
@@ -58,9 +58,9 @@ class Storage:
         '''
         for i in self.data:
             print("----------------------------")
-            print("Read R-TS: ",i.readTS)
-            print("Read W-TS: ",i.writeTS)
-            print("Version: ",i.version)
-            print("Key: ",i.key)
-            print("Value: ",i.val)
+            print("Read R-TS: ",i[2])
+            print("Read W-TS: ",i[3])
+            print("Version: ",i[4])
+            print("Key: ",i[0])
+            print("Value: ",i[1])
             print()
