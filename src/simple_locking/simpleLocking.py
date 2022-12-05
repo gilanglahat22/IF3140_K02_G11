@@ -178,7 +178,7 @@ class SimpleLocking:
     else:
       print(f"{self.format(transaction)} : T{str(transaction[1])} writes {transaction[2]}")
 
-  # Memeriksa apakah masih terdapat transaksi yang belum diproses
+  # Memeriksa apakah nomor transaksi masih terdapat pada transaksi berikutnya
   def still_exist(self, transaction):
     for element in self.transactionList:
       if element[1] == transaction[1]:
