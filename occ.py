@@ -27,6 +27,48 @@ for i in (f.read().splitlines()):
 
 f.close()
 
-for i in dictTrans:
-    print("T"+str(dictTrans[i].number), dictTrans[i].actions)
-    print("")
+trans_list = list(dictTrans.keys())
+clock = 1
+
+
+def is_all_finished(trans_list, dictTrans):
+    for i in trans_list:
+        if not(dictTrans[i].is_end):
+            return False
+    return True
+
+
+while not is_all_finished(trans_list, dictTrans):
+    for j in trans_list:
+        if dictTrans[j].is_end:
+            continue
+
+        action = dictTrans[j].get_current_action()
+        if (action.time <= clock):
+            is_executed = True
+            if (action.operation == "commit"):
+                for i in trans_list:
+                    if dictTrans[i].is_end:
+                        if (not (dictTrans[i].finishTS < dictTrans[j].startTS) and
+                            not((dictTrans[j].startTS < dictTrans[i].finishTS < clock) and
+                                (len(dictTrans[i].write_sets.intersection(dictTrans[j].read_sets)) == 0))):
+                            is_executed = False
+
+            if is_executed:
+                if action.operation == "commit":
+                    print("<< validation = success >>")
+
+                action.print(j)
+                dictTrans[j].increment_state()
+
+                if action.operation == "commit" or action.operation == "abort":
+                    dictTrans[j].is_end = True
+                    dictTrans[j].finishTS = clock
+            else:
+                print("<< validation = failed >>")
+                print(f"A{j};")
+                dictTrans[j].state = 0
+                dictTrans[j].is_end = False
+                dictTrans[j].startTS = clock
+
+    clock += 1
