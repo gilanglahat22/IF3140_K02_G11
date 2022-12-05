@@ -41,7 +41,7 @@ py .\occ.py ..\..\test\occ_test1.txt
 
 How to run?
 
-1. Ubah [path file test] dengan ../../test/[nama file] dan <countItem> pada CC([path file test], [countItem])
+1. Ubah [path file test] dengan ../../test/[nama file.txt] dan <countItem> pada CC([path file test], [countItem])
 2. Masuk ke dalam folder .\src\MVCC\
 3. Ketikkan perintah di bawah ini pada terminal
 ```
