@@ -35,7 +35,7 @@ class SimpleLocking:
       # Jika transaction tidak dapat di-lock
       else:
         print(f"Grant Lock for {self.format(curr)} denied.")
-        if self.still_exist(curr):
+        if not self.still_exist(curr):
           self.queue.append(curr)
           print(f"Transaction {self.format(curr)} added to queue.")
         else:
@@ -172,18 +172,23 @@ class SimpleLocking:
   def still_exist(self, transaction):
     for element in self.transactionList:
       if element[1] == transaction[1]:
-        return False
+        return True
     for element in self.done:
       if element[1] == transaction[1]:
-        return False
-    return True
+        return True
+    return False
 
 if __name__ == "__main__":
   simple_locking = SimpleLocking()
   print("\nSimple Locking Concurrency Control Protocol")
-  print("Contoh Transasctions:", end=" ")
-  print("R1(A),R2(B),W1(A),R1(B),W3(A),W4(B),W2(B),R1(C)", end="\n\n")
-  input_type = input("Input from file or keyboard? ")
+  print("Contoh Transaksi:", end=" ")
+  print("R1(X),R2(Y),R1(Y)")
+  print("Comma seperated dan transaksi auto commit saat transaksi merupakan nomor transaksi terakhir", end="\n\n")
+  input_type = input("Input from file or terminal? [file/terminal] ")
+  while input_type != 'file' or input_type != 'terminal':
+    input_type = input("Input from file or terminal? [file/terminal] ")
+    if input_type == 'file' or input_type == 'terminal':
+      break
   if input_type == 'file':
     simple_locking.read_from_file(input("Enter file name (*.txt): "))
   else:
