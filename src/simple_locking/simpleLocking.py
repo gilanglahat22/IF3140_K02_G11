@@ -38,19 +38,11 @@ class SimpleLocking:
         if self.still_exist(curr):
           self.queue.append(curr)
           print(f"Transaction {self.format(curr)} added to queue.")
-          self.print_transactions("Current Transactions in queue.", self.queue)
         else:
           print(f"Abort T{str(curr[1])}. Rollback T{str(curr[1])}.")
           self.execute_rollback(curr)
     return
 
-
-  def print_transactions(self, string, list):
-    print(string)
-    print("[")
-    for i in range(len(list)):
-      print(f"  -> {self.format(list[i])}")
-    print("]")
 
   def read_from_file(self, filename):
     f = open("test/" + filename, "r")
@@ -153,7 +145,6 @@ class SimpleLocking:
       print(f"UL{str(value[1])}({value[2]}): Unlock Lock-X({value[2]}) from T{str(value[1])}")
       print(f"C{str(value[1])} : Commit T{str(value[1])}")
       self.queue.remove(value)
-      self.print_transactions("Current Transactions in queue.", self.queue)
 
   def is_commit(self, transaction):
     for element in self.transactionList:
@@ -169,7 +160,6 @@ class SimpleLocking:
     self.unlock(transaction)
     self.transactionList += self.rollback
     self.rollback = []
-    self.print_transactions("Transactions remaining.", self.transactionList)
 
   # Output informasi
   def info(self, transaction):
@@ -187,9 +177,6 @@ class SimpleLocking:
       if element[1] == transaction[1]:
         return False
     return True
-
-
-
 
 if __name__ == "__main__":
   simple_locking = SimpleLocking()
