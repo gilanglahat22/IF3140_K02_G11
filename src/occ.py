@@ -57,7 +57,7 @@ while not is_all_finished(trans_list, dictTrans):
 
             if is_executed:
                 if action.operation == "commit":
-                    print(f"<< validation T{j}= success >>")
+                    print(f"<< validation T{j} = success >>")
 
                 action.print(j)
                 dictTrans[j].increment_state()
