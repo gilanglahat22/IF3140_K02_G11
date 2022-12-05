@@ -1,11 +1,12 @@
 from transaction_occ import Transaction, build_action
-
+import sys
+import os
 # StartTS(Ti)
 # Read and Execution Phase
 
 # Read File
-filename = input("Input Transaction's File: ")
-f = open(filename, "r")
+# filename = input("Input Transaction's File: ")
+f = open(str(sys.argv[1]), "r")
 
 arrTransactions = []
 dictTrans: dict[int, Transaction] = dict()
