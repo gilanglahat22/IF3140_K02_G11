@@ -185,11 +185,11 @@ if __name__ == "__main__":
   print("R1(X),R2(Y),R1(Y)")
   print("Comma seperated dan transaksi auto commit saat transaksi merupakan nomor transaksi terakhir", end="\n\n")
   input_type = input("Input from file or terminal? [file/terminal] ")
-  while input_type != 'file' or input_type != 'terminal':
+  while input_type != "file" and input_type != "terminal":
     input_type = input("Input from file or terminal? [file/terminal] ")
-    if input_type == 'file' or input_type == 'terminal':
+    if input_type == "file" and input_type == "terminal":
       break
-  if input_type == 'file':
+  if input_type == "file":
     simple_locking.read_from_file(input("Enter file name (*.txt): "))
   else:
     simple_locking.read(input("Enter transactions: "))
